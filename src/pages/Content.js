@@ -22,24 +22,22 @@ class Content extends Component {
       }
       this.state.rows.push(<img key={i} id={i} src={dog} className="item" alt="item" />);
     }
-
   }
-
   render() {
     return (
       <div>
         <div className="container">
           <div className="row">
-            <div className="item-wrap col-12 col-md-12">
+            <div className="item-wrap col-8 col-md-8">
               <div className="item-content"> {this.state.rows} </div>
             </div>
-            <div className="col-12 col-md-12">
-              <h2> How many dogs ? {this.state.total}</h2>
+            <div className="col-4 col-md-4">
+              {/* <h2> How many dogs ? {this.state.total}</h2> */}
+              <h2> How many dogs ? </h2>
+              <Answer dataFromParent={this.state.total} />
             </div>
           </div>
         </div>
-        {/* <Answer /> */}
-        <Answer dataFromParent={this.state.total} />
       </div>
     )
   }
