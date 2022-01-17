@@ -22,9 +22,9 @@ class NameForm extends Component {
   handleSubmit(event) {
     console.log(this.props.dataFromParent);
 
-    if (this.state.value == this.props.dataFromParent) {
+    if (this.state.value === this.props.dataFromParent) {
 
-       console.log("correct");
+      console.log("correct");
 
       this.setState({
         rewards: <img key={this.state.value} src={correct} className="" alt="item" />,
@@ -49,13 +49,16 @@ class NameForm extends Component {
     return (
       <div>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Your Answer is:
+        <form onSubmit={this.handleSubmit} className='d-flex align-items-center'>
+          <div className="col-auto">
+            <label>Your Answer is:</label>
+          </div>
+          <div className="col-auto">
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-
+          </div>
+          <div className="col-auto">
+            <button className='btn btn-primary' type="submit"> Submit</button>
+          </div>
         </form>
         {this.state.rewards}
         {/* The result from parent is:{this.props.dataFromParent} */}
@@ -64,7 +67,4 @@ class NameForm extends Component {
     );
   }
 }
-
-
-
 export default NameForm;
