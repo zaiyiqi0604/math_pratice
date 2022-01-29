@@ -8,9 +8,10 @@ class Content extends Component {
       RandomNumber1: '',
       RandomNumber2: '',
       rows: '',
-      total: ''
+      total: '',
+      QuestionNo: ''
     };
-
+    this.state.QuestionNo = 1;
     this.generateDiagram = this.nextQuestion.bind(this);
 
     this.state.RandomNumber1 = Math.floor(Math.random() * 9) + 1;
@@ -44,8 +45,10 @@ class Content extends Component {
     console.log("latest total  is " + total);
 
     this.setState({
+
       total: total,
-      rows: rows
+      rows: rows,
+      QuestionNo: this.state.QuestionNo + 1
     });
   }
 
@@ -53,21 +56,19 @@ class Content extends Component {
     return (
       <div>
         <div className="container">
-          <h2> How many dogs ? {this.state.total}</h2>
+          <h1>Question:{this.state.QuestionNo}</h1>
+          {/* <h2> How many dogs ? {this.state.total}</h2> */}
           <div className="row">
             <div className="item-wrap col-8 col-md-8">
               <div className="item-content"> {this.state.rows} </div>
             </div>
             <div className="col-4 col-md-4">
-              {/* <h2> How many dogs ? {this.state.total}</h2> */}
-              You already correct:xxx times
-            </div>
-            <div className="col-12 col-md-12">
               <Answer dataFromParent={this.state.total} />
               <button className='btn btn-primary' onClick={this.nextQuestion}>
                 Next One !
               </button>
             </div>
+
           </div>
         </div>
       </div>
